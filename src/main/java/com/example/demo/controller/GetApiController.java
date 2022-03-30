@@ -1,6 +1,9 @@
 package com.example.demo.controller;
 
+import dto.UserRequest;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/get")
@@ -24,5 +27,48 @@ public class GetApiController {
     public String pathVariable(@PathVariable(name = "input") String pahtName){ //하지만, name이라는 변수가 여러개 생길 때는 name을 매칭 시켜주는 부분이 필요하다.
         System.out.println("PathVariable : " + pahtName);
         return pahtName;
+    }
+
+    //Get Method 받는 방법 1
+    //Map객체를 이용하여 받는방법
+    @GetMapping(path = "query-param")
+    public String queryParam(Map<String, String> queryParam){
+        StringBuilder sb = new StringBuilder();
+        queryParam.entrySet().forEach(entry -> {
+            System.out.println(entry.getKey());
+            System.out.println(entry.getValue());
+            System.out.println("\n");
+
+            sb.append(entry.getKey() + " = " + entry.getValue() + "\n");
+        });
+
+        return sb.toString();
+    }
+
+    //Get Method 받는 방법 2
+    //파라미터 변수로 일일히 하나하나 받는 방법 유지보수가 힘들어 잘 사용하지 않는다.
+    @GetMapping(path = "query-param02")
+    public String queryParam(
+        @RequestParam String name,
+        @RequestParam String email,
+        @RequestParam int age
+    ){
+        System.out.println(name);
+        System.out.println(email);
+        System.out.println(age);
+
+        return name + " " + email +" " +age;
+    }
+
+    //Get Method 받는 방법3
+    //객체를 이용 DTO를 생성하여 받는방법
+    @GetMapping(path = "query-param03")
+    public String queryParam(UserRequest userRequest){
+
+        System.out.println(userRequest.name);
+        System.out.println(userRequest.email);
+        System.out.println(userRequest.age);
+
+        return userRequest.toString();
     }
 }

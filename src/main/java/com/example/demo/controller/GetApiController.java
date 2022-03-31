@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import dto.UserRequest;
+import com.example.demo.dto.UserRequest;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -24,13 +24,14 @@ public class GetApiController {
     //@GetMapping("/path-variable/{name}")
     //public String pathVariable(@PathVariable String name){ // 주소의 name과 String name의 변수명은 맞춰주어야한다.
     @GetMapping("/path-variable/{input}")
-    public String pathVariable(@PathVariable(name = "input") String pahtName){ //하지만, name이라는 변수가 여러개 생길 때는 name을 매칭 시켜주는 부분이 필요하다.
-        System.out.println("PathVariable : " + pahtName);
-        return pahtName;
+    public String pathVariable(@PathVariable(name = "input") String pathName){ //하지만, name이라는 변수가 여러개 생길 때는 name을 매칭 시켜주는 부분이 필요하다.
+        System.out.println("PathVariable : " + pathName);
+        return pathName;
     }
 
     //Get Method 받는 방법 1
     //Map객체를 이용하여 받는방법
+    //변수의 갯수를 정확히 파악이 안될때 사용
     @GetMapping(path = "query-param")
     public String queryParam(Map<String, String> queryParam){
         StringBuilder sb = new StringBuilder();
@@ -46,6 +47,7 @@ public class GetApiController {
     }
 
     //Get Method 받는 방법 2
+    //변수의 갯수가 적을 때 사용
     //파라미터 변수로 일일히 하나하나 받는 방법 유지보수가 힘들어 잘 사용하지 않는다.
     @GetMapping(path = "query-param02")
     public String queryParam(

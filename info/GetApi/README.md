@@ -1,4 +1,7 @@
 # Api 설정 공통 사항
+![2](https://user-images.githubusercontent.com/49854618/161555636-943cb310-ff1d-492e-8f81-547e47b42bec.PNG)
+
+
 ### @RestController
 - class 위에 rest api 를 처리하는 controller라는 것을 알려주는 annotation
 
@@ -7,6 +10,7 @@
 - ex : @RequestMapping("/api") -> localhost:8080/api
 
 # Get Api 설정 방법
+- Get Api는 조회를 목적으로 한다.
 - @GetMapping을 이용한 방법
 - @RequestMapping을 이용한 방법
 - @GetMapping에 변수를 이용한 방법 

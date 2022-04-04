@@ -1,5 +1,6 @@
 # Spring에 대한 내용 정리 
 ## Api 설정 방법
+![1](https://user-images.githubusercontent.com/49854618/161555767-a7786874-58d3-4c51-83c5-52ff3fee0cb9.PNG)
 - [Get api](https://github.com/hyunseokjoo/prac_spring/tree/main/info/GetApi)
 - [Post api](https://github.com/hyunseokjoo/prac_spring/tree/main/info/PostApi)
 

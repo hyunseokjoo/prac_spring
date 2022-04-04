@@ -1,4 +1,5 @@
 # Post Api 설정 방법
+![3](https://user-images.githubusercontent.com/49854618/161555853-1ff3adb3-8232-45e0-86da-15b1e8e3ec67.PNG)
 
 ### PostMapping annotation을 이용한 방법
 ```java
